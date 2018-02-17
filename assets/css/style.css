@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/pinkpanther.jpg");
+    position: relative;
+  
+   
+   }
+	
+
+.top-buffer { margin-top:20px; }
+
+
+.box1 h3, .box2 h3 , .box3 h3{
+	text-align:center;
+	position:relative;
+	top:80px;
+}
+.box1 ,.box2 ,.box3 {
+	width:70%;
+	height:200px;
+	background:black;
+	margin:40px auto;
+	box-shadow: 0 10px 6px -6px #777;
+}
+
+
+#Star1, #Star3, #Star5{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#Star2, #Star4, #Star6 {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}

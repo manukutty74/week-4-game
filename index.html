@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery Assignment 4 </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css"> -->
+  
+
+</head>
+<body>
+
+ <div class="container">
+
+       <div class="row top-buffer">
+                 <div class = "col-md-offset-3 col-md-6 col-md-offset-3">
+                <h1> jQuery Assignment 4 </h1>
+          </div>
+      </div> 
+
+
+     <div class ="row" id="C1">
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarGreen.png" id="Star1"/> 
+        </div>
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarBlue.png" id="Star2"/> 
+        </div>
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarGreen.png" id="Star3"/> 
+        </div>
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarBlue.png" id="Star4"/> 
+        </div>
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarGreen.png" id="Star5"/> 
+        </div>
+        <div class = "col-md-1 S1">
+               <img src="./assets/images/StarBlue.png" id="Star6"/> 
+        </div> 
+
+    </div>
+
+      
+
+  	 	<div class="row top-buffer">
+           
+  	 	</div> 
+       
+
+       <div class = "row top-buffer">
+       	<div class = "col-md-12">
+               <div class = "col-md-4"> 
+               	 <div class="box1">
+  	                  <h3>Constant Random Number</h3>
+                </div>
+              </div> 	  
+   			      <div class = "col-md-4"> 
+                  <div class="box2">
+                      <h3>Add Random number</h3>
+                  </div>          
+              </div>
+  			      <div class = "col-md-4"> 
+                 <div class="box3">
+                      <h3> Score  </h3>
+                      <h3 id="Win"> Wins :</h3>
+                      <h3 id ="Losses"> Losses : </h3>
+                 </div>  
+               </div> 	  
+           </div>
+        </div>  <!-- End of row --> 
+
+  	
+       <div class = "row top-buffer">
+       	    <div class = "col-md-12">
+               <div class = "col-md-3"> 
+                    <button type="button" class="btn btn-danger btn-lg" id = "heart">Heart</button>
+               </div> 	  
+   			        <div class = "col-md-3">
+                    <button type="button" class="btn btn-success btn-lg" id = "diamond">Diamond</button>
+               </div> 	  
+               <div class = "col-md-3"> 
+                    <button type="button" class="btn btn-warning btn-lg" id ="spade">Spade</button>
+               </div> 	  
+   			       <div class = "col-md-3"> 
+                   <button type="button" class="btn btn-info btn-lg" id ="club">Clubs</button>
+               </div> 	  
+           </div>
+       </div>     
+
+      
+        <div class = "row">
+                                     
+               <div class = "col-md-offset-11 col-md-1">
+                   <button type="button" class="btn theme-button" aria-label="Right Align">
+                         <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                   </button>
+                   <button type="button" class="btn pause-button" aria-label="Right Align">
+                         <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                   </button>
+               </div>     
+          
+        </div>     
+
+
+    </div> <!-- Container Div -->
+
+
+
+
+
+<!-- Scripts -->
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+   
+     var randomArray = []; 
+     var randomMax = 0
+     var randomAdd = 0; 
+     var scoreArray = [0 , 0];
+     init(); 
+
+
+// Intended to be executed only during load and reset . 
+  function init()
+    {
+    
+    randomArray[0] = getRandomInt(1,10);
+    randomArray[1] = getRandomInt(11,20);
+    randomArray[2] = getRandomInt(21,30);
+    randomArray[4] = getRandomInt(31,40);
+    var num2Add = 0 ;
+    randomAdd=0; 
+    randomMax = getRandomInt(100,120);
+     
+
+     $(".box1 h3").html(randomMax);
+
+  
+   
+  }; 
+   
+
+ // On click of any of the four buttons
+ function ClickButton(my_class,num2Add)
+    {
+
+    
+     randomAdd += num2Add;
+     $(my_class).html(randomAdd); 
+     
+     if(randomAdd > randomMax) 
+        {
+
+          scoreArray[1] ++ ;
+          var textLoss = 'Losses :'+ scoreArray[1];
+          $('h3#Losses').html(textLoss); 
+           alert("You Lost") ;
+
+           celebLoss();
+           reset();
+
+          }
+
+      if(randomAdd === randomMax) 
+         {
+
+          scoreArray[0] ++ ;
+          $('h3#Win').append(scoreArray[0]);
+          alert("You won") ; 
+         
+          celebWin();
+          reset();
+
+       }
+
+    }; 
+
+
+// Onclick of Heart button 
+
+  $('#heart').on("click",function()
+  {
+      num2Add =  randomArray[0];
+      ClickButton(".box2 h3",num2Add);
+    }); 
+
+// Onclick of Diamond button 
+
+  $('#diamond').on("click",function()
+   {
+       num2Add =  randomArray[1];
+      ClickButton(".box2 h3",num2Add);
+    }); 
+
+// Onclick of Spade button 
+
+$('#spade').on("click",function()
+   {
+      num2Add =  randomArray[2];
+      ClickButton(".box2 h3",num2Add);
+    }); 
+
+//Onclick of Club button 
+
+$('#club').on("click",function()
+   {
+      num2Add =  randomArray[4];
+      ClickButton(".box2 h3",num2Add);
+    }); 
+
+
+// Once Lost or Won this function will reset the variable .
+
+function reset()
+{
+
+    $(".box2").empty();
+    $(".box1").empty();
+     
+
+    $(".box1").append("<h3>Constant Random Number</h3>");
+    $(".box2").append("<h3>Random number total</h3>");
+
+    init();
+
+};
+
+
+// Animation Function 
+
+function celebWin()
+{
+
+  $('#Star1').animate({"top": "0px", "top": "600px"}, 1500);
+
+};
+
+
+function celebLoss()
+{
+
+  $('#Star2').animate({"top": "0px", "top": "600px" }, 1500);
+
+  $('#Star2').removeAttr('style'); //
+  $('#Star2').animate({
+     left: 50,
+     top: 40
+    });
+
+  
+}; // F(x) - Main End 
+
+
+      var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "./assets/Song.mp3");
+
+     // Theme Button
+      $(".theme-button").on("click", function() {
+        audioElement.play();
+      });
+
+      $(".pause-button").on("click", function() {
+        audioElement.pause();
+      });
+
+  
+
+});  // End of ready f(x) 
+
+
+
+
+function getRandomInt(min, max) 
+ {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+ };
+
+
+
+</script>
+
+</body>
+</html>
