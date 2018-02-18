@@ -13,6 +13,17 @@
 </head>
 <body>
 
+
+  <div class ="row" >
+        <div class = "col-md-1">
+               <img src="./assets/images/StarGreen.png" id="Star1"/> 
+        </div>
+        <div class = "col-md-offset-10 col-md-1">
+               <img src="./assets/images/StarBlue.png" id="Star2"/> 
+        </div>
+     </div>
+
+
  <div class="container">
 
        <div class="row top-buffer">
@@ -22,29 +33,7 @@
       </div> 
 
 
-     <div class ="row" id="C1">
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarGreen.png" id="Star1"/> 
-        </div>
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarBlue.png" id="Star2"/> 
-        </div>
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarGreen.png" id="Star3"/> 
-        </div>
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarBlue.png" id="Star4"/> 
-        </div>
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarGreen.png" id="Star5"/> 
-        </div>
-        <div class = "col-md-1 S1">
-               <img src="./assets/images/StarBlue.png" id="Star6"/> 
-        </div> 
-
-    </div>
-
-      
+          
 
   	 	<div class="row top-buffer">
            
@@ -238,6 +227,7 @@ function celebWin()
 {
 
   $('#Star1').animate({"top": "0px", "top": "600px"}, 1500);
+  $('#Star1').animate({"left": 50,top: 40});
 
 };
 
@@ -246,12 +236,7 @@ function celebLoss()
 {
 
   $('#Star2').animate({"top": "0px", "top": "600px" }, 1500);
-
-  $('#Star2').removeAttr('style'); //
-  $('#Star2').animate({
-     left: 50,
-     top: 40
-    });
+  $('#Star2').animate({"left": 50,top: 40});
 
   
 }; // F(x) - Main End 
