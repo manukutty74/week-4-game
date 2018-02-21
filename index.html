@@ -7,21 +7,76 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   
 
 </head>
 <body>
 
 
-  <div class ="row" >
-        <div class = "col-md-1">
-               <img src="./assets/images/StarGreen.png" id="Star1"/> 
-        </div>
-        <div class = "col-md-offset-10 col-md-1">
-               <img src="./assets/images/StarBlue.png" id="Star2"/> 
-        </div>
-     </div>
+      <div class ="row" >
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+      
+               <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+      
+               <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>
+
+              <div class = "col-md-1"> 
+                 <img src="./assets/images/StarGreen.png" class = "Star1"/>
+                 <img src="./assets/images/StarBlue.png"  class = "Star2"/>
+              </div>       
+
+    </div> 
+
 
 
  <div class="container">
@@ -132,34 +187,33 @@
 
   
    
-  }; 
+  }
    
 
  // On click of any of the four buttons
  function ClickButton(my_class,num2Add)
     {
 
-    
-     randomAdd += num2Add;
+      randomAdd += num2Add;
+
      $(my_class).html(randomAdd); 
      
      if(randomAdd > randomMax) 
         {
 
-          scoreArray[1] ++ ;
+          scoreArray[1]++;
           var textLoss = 'Losses :'+ scoreArray[1];
-          $('h3#Losses').html(textLoss); 
+           $('h3#Losses').html(textLoss); 
            alert("You Lost") ;
 
            celebLoss();
            reset();
-
           }
 
       if(randomAdd === randomMax) 
          {
 
-          scoreArray[0] ++ ;
+          scoreArray[0]++ ;
           $('h3#Win').append(scoreArray[0]);
           alert("You won") ; 
          
@@ -168,7 +222,7 @@
 
        }
 
-    }; 
+    }
 
 
 // Onclick of Heart button 
@@ -218,7 +272,7 @@ function reset()
 
     init();
 
-};
+}
 
 
 // Animation Function 
@@ -226,20 +280,36 @@ function reset()
 function celebWin()
 {
 
-  $('#Star1').animate({"top": "0px", "top": "600px"}, 1500);
-  $('#Star1').animate({"left": 50,top: 40});
+  $('.Star1').animate({"top": "0px", "top": "600px"}, 1500,
+   function () {
+                    $('.Star1').fadeOut(500,function(){
+                      
+                        $('.Star1').css({'top': '20px','left': '20px','poisition' : 'absolute' , "display" : "block"});
 
-};
+                 });
+               }
+      );
+
+
+}
 
 
 function celebLoss()
 {
 
-  $('#Star2').animate({"top": "0px", "top": "600px" }, 1500);
-  $('#Star2').animate({"left": 50,top: 40});
+ 
 
-  
-}; // F(x) - Main End 
+ $('.Star2').animate({"top": "0px", "top": "600px" }, 1500,
+    function () {
+                    $('.Star2').fadeOut(500,function(){
+                      
+                        $('.Star2').css({'top': '20px','right': '20px','poisition' : 'absolute' , "display" : "block"});
+
+                 });
+               }
+      );
+
+    } // F(x) - celeLoss
 
 
       var audioElement = document.createElement("audio");
@@ -254,7 +324,9 @@ function celebLoss()
         audioElement.pause();
       });
 
-  
+
+
+
 
 });  // End of ready f(x) 
 
@@ -266,7 +338,7 @@ function getRandomInt(min, max)
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
- };
+ }
 
 
 

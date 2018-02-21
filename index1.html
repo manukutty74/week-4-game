@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery Assignment 4 </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  
+
+</head>
+<body>
+
+
+      <div class=L1> Test </div> 
+
+
+
+ 
+
+  
+
+
+
+<!-- Scripts -->
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+   
+    
+
+
+// Animation Function 
+
+function celebWin()
+{
+
+  $('.Star1').animate({"top": "0px", "top": "600px"}, 1500,
+   function () {
+                    $('.Star1').fadeOut(500,function(){
+                      
+                        $('.Star1').css({'top': '20px','left': '20px','poisition' : 'absolute' , "display" : "block"});
+
+                 });
+               }
+      );
+
+
+}
+
+
+function celebLoss()
+{
+
+ 
+
+ $('.Star2').animate({"top": "0px", "top": "600px" }, 1500,
+    function () {
+                    $('.Star2').fadeOut(500,function(){
+                      
+                        $('.Star2').css({'top': '20px','right': '20px','poisition' : 'absolute' , "display" : "block"});
+
+                 });
+               }
+      );
+
+    } // F(x) - celeLoss
+
+
+    
+
+
+
+});  // End of ready f(x) 
+
+
+
+
+function getRandomInt(min, max) 
+ {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+ }
+
+
+
+</script>
+
+</body>
+</html>
